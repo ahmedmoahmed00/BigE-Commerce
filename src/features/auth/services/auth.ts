@@ -6,7 +6,7 @@ export const signInWithGoogle = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: "http://localhost:5173/",
+        redirectTo: "https://big-e-commerce-gamma.vercel.app/",
         queryParams: {
           access_type: "offline",
           prompt: "select_account",
