@@ -1,0 +1,10 @@
+User-agent: *
+
+Allow: /checkout
+Allow: /success
+Allow: /profile
+Allow: /admin
+Allow: /cart/ 
+Allow: /categories/ 
+Allow: /assets/
+Allow: /products/

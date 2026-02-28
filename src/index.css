@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@theme {
+  --color-primary: white;
+  --color-secondary: oklch(54.6% 0.245 262.881);
+  --color-accent: black;
+  --color-background: white;
+  --color-secondarybackground: oklch(98.5% 0.002 247.839);
+  --color-bghover: oklch(0.967 0.003 264.542);
+  --animate-fade-up: fade-up 0.3s ease-out forwards;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer components {
+  .overlay {
+    @apply fixed inset-0 bg-black/50 z-10;
+  }
+
+  .loader {
+    width: 60px;
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #25b09b;
+    --_m:
+      conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    animation: loading 1s infinite linear;
+  }
+
+  @keyframes loading {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  .close-clip-custom {
+    clip-path: inset(0% 0% 0% 0%);
+    transition: clip-path 0.4s ease-in-out;
+  }
+
+  .open-clip-custom {
+    clip-path: inset(0% 0% 100% 0%);
+    transition: clip-path 0.4s ease-in-out;
+  }
+}
